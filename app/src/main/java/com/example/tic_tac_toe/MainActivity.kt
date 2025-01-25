@@ -17,17 +17,18 @@ class MainActivity : ComponentActivity() {
         const val O = "O"
     }
 
-    private var currentTurn = O;
+    private var currentTurn = X;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(dataBinding.root)
 
-        init()
+        initBoard()
+        resetGame()
     }
 
-    private fun init() {
+    private fun initBoard() {
         board.add(dataBinding.square11)
         board.add(dataBinding.square12)
         board.add(dataBinding.square13)
@@ -41,14 +42,22 @@ class MainActivity : ComponentActivity() {
         updateTitle()
     }
 
+    fun resetGame() {
+        currentTurn = X
+
+        for(button in board)
+        {
+            button.text = ""
+        }
+    }
     fun handleSquareClicked(view: View) {
         if (view !is Button) return
 
         updateBoard(view)
 
-        if (hasPlayerWon(currentTurn)) result()
+        if (hasPlayerWon(currentTurn)) return showResult()
 
-        if (hasGameFinished()) result()
+        if (hasGameFinished()) return showResult(true)
 
         currentTurn = if (currentTurn == X) O else X;
 
@@ -131,25 +140,18 @@ class MainActivity : ComponentActivity() {
 
     private fun isBtnTextEquals(button: Button, symbol: String): Boolean = button.text == symbol
 
-    private fun result()
+    private fun showResult(hasDrawn: Boolean = false)
     {
-        val message = "$currentTurn won"
+        val message = if(hasDrawn) "Draw" else "$currentTurn won"
 
         AlertDialog.Builder(this)
             .setTitle(title)
             .setMessage(message)
             .setPositiveButton("Play again")
             { _,_ ->
-                resetBoard()
+                resetGame()
             }
             .setCancelable(false)
             .show()
-    }
-
-    private fun resetBoard() {
-        for(button in board)
-        {
-            button.text = ""
-        }
     }
 }
