@@ -1,5 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Welcome to TicTacToe"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/turnTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="X To Play"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <View style="@style/horizontalLine" />
+
+        <LinearLayout style="@style/row">
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square11"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square12"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square13"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+        </LinearLayout>
+
+        <View style="@style/horizontalLine" />
+
+        <LinearLayout style="@style/row">
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square21"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square22"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square23"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+        </LinearLayout>
+
+        <View style="@style/horizontalLine" />
+
+        <LinearLayout style="@style/row">
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square31"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square32"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+            <Button
+                android:id="@+id/square33"
+                style="@style/column" />
+
+            <View style="@style/verticalLine" />
+
+        </LinearLayout>
+
+        <View style="@style/horizontalLine" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
